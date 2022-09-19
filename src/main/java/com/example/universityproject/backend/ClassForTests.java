@@ -15,7 +15,8 @@ public class ClassForTests {
         List<String> students = objForExcelParsing.pushToArrayList("src/main/resources/wordAndExcelTemplates/Пример таблицы.xlsx");
         //delete in future
         System.out.println(students);
-        /*ArrayList<String> replaceableNames = new ArrayList<>();
+        // initialise arraylist witch contains key-words(like ${id}, &{name} etc.)
+        ArrayList<String> replaceableNames = new ArrayList<>();
         replaceableNames.add("${instituteName}");
         replaceableNames.add("${departmentName}");
         replaceableNames.add("${practiceName}");
@@ -35,10 +36,17 @@ public class ClassForTests {
         replaceableNames.add("${directionNum}");
         replaceableNames.add("${directionName}");
         replaceableNames.add("${profileName}");
+
+        //initialise object to use methode updateDocument
         UpdateDocument objUpdateWord = new UpdateDocument();
-        String inputPath = "D:\\wrdfiles\\Титулы практики.docx";
-        String outputPath = "D:\\wrdfiles\\projecttest.docx";
+
+        //creating variables for path to files
+        String inputPath = "src/main/resources/wordAndExcelTemplates/mainWordFile.docx";
+        String outputPath = "src/main/resources/wordAndExcelTemplates/fileForTesting.docx";
+
+        // for statement to replace everything in the project
         for(int i = 0; i < replaceableNames.size(); i++){
+            //switch-case to work with key-words
             switch (replaceableNames.get(i)){
                 case "${instituteName}":
                     objUpdateWord.updateDocument(inputPath, outputPath, "${instituteName}", instituteName);
@@ -74,6 +82,7 @@ public class ClassForTests {
                     objUpdateWord.updateDocument(inputPath, outputPath, "${groupName}", groupName);
                     break;
                 case "${studentFullName}":
+                    //add for statements for students
                     objUpdateWord.updateDocument(inputPath, outputPath, "${studentFullName}", studentFullName);
                     break;
                 case "${practicePlaceAndTime}":
@@ -97,7 +106,7 @@ public class ClassForTests {
                 case "${profileName}":
                     objUpdateWord.updateDocument(inputPath, outputPath, "${profileName}", profileName);
                     break;
-            }
-        }*/
+            }//add default statement for switch-case
+        }
     }
 }
