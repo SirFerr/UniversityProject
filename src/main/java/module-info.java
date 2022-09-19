@@ -17,5 +17,8 @@ module com.example.universityproject {
 
             
     opens com.example.universityproject to javafx.fxml;
-    exports com.example.universityproject;
+    exports com.example.universityproject.backend;
+    opens com.example.universityproject.backend to javafx.fxml;
+    exports com.example.universityproject.frontend;
+    opens com.example.universityproject.frontend to javafx.fxml;
 }

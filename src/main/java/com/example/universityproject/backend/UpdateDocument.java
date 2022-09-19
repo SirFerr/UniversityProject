@@ -1,4 +1,4 @@
-package com.example.universityproject;
+package com.example.universityproject.backend;
 
 import org.apache.poi.xwpf.usermodel.*;
 

@@ -1,5 +1,8 @@
-package com.example.universityproject;
+package com.example.universityproject.backend;
 
+
+import com.example.universityproject.backend.ExcelParsing;
+import com.example.universityproject.backend.UpdateDocument;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,7 +15,7 @@ public class ClassForTests {
         List<String> students = objForExcelParsing.pushToArrayList("src/main/resources/wordAndExcelTemplates/Пример таблицы.xlsx");
         //delete in future
         System.out.println(students);
-        ArrayList<String> replaceableNames = new ArrayList<>();
+        /*ArrayList<String> replaceableNames = new ArrayList<>();
         replaceableNames.add("${instituteName}");
         replaceableNames.add("${departmentName}");
         replaceableNames.add("${practiceName}");
@@ -95,6 +98,6 @@ public class ClassForTests {
                     objUpdateWord.updateDocument(inputPath, outputPath, "${profileName}", profileName);
                     break;
             }
-        }
+        }*/
     }
 }
