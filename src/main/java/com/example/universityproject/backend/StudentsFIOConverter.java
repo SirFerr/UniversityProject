@@ -1,15 +1,11 @@
 package com.example.universityproject.backend;
 
-
-import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class    StudentsFIOConverter {
-
     public static List<String> cutStud(List<String> students){
         List<String> newStudentsFormat = new ArrayList<>();
         for (String newFIOFormat:students) {
@@ -19,9 +15,7 @@ public class    StudentsFIOConverter {
                 latter.append(m.group() +".");
             }
            newStudentsFormat.add(newFIOFormat.replaceAll("\\s\\W+", String.valueOf(latter)));
-
         }
         return newStudentsFormat;
     }
-
 }
