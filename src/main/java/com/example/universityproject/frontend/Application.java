@@ -1,4 +1,4 @@
-package com.example.universityproject;
+package com.example.universityproject.frontend;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

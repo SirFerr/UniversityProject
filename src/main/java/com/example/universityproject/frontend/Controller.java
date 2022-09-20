@@ -1,4 +1,4 @@
-package com.example.universityproject;
+package com.example.universityproject.frontend;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
