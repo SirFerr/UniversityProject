@@ -8,6 +8,7 @@ module com.example.universityproject {
     requires org.apache.poi.ooxml;
     requires org.apache.poi.ooxml.schemas;
     requires org.apache.poi.poi;
+    requires spire.doc.free;
 
 
             
