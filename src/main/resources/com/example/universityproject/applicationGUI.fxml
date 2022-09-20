@@ -128,6 +128,7 @@
                         <Label depthTest="DISABLE" graphicTextGap="10.0" prefHeight="21.0" text="Список студентов" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
                         <Button fx:id="btnFileChooser" mnemonicParsing="false" text="Выбор файла" GridPane.rowIndex="1" />
                         <Button fx:id="btnSubmit" mnemonicParsing="false" text="Подтвердить" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="submitText" depthTest="DISABLE" graphicTextGap="10.0" prefHeight="21.0" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
                   <Label depthTest="DISABLE" layoutX="243.0" layoutY="14.0" prefHeight="21.0" text="University project" textAlignment="CENTER" textOverrun="CLIP" />

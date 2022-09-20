@@ -4,11 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,10 +14,10 @@ public class Controller implements Initializable {
     private ComboBox<String> instituteName;
 
     @FXML
-    private ComboBox<?> practiceName;
+    private ComboBox<String> practiceName;
 
     @FXML
-    private ComboBox<?> departmentName;
+    private ComboBox<String> departmentName;
 
     @FXML
     private TextField position;
@@ -48,10 +44,10 @@ public class Controller implements Initializable {
     private TextField groupName;
 
     @FXML
-    private ChoiceBox<?> courseNum;
+    private ChoiceBox<Integer> courseNum;
 
     @FXML
-    private ComboBox<?> directionName;
+    private ComboBox<String> directionName;
 
     @FXML
     private TextField profileName;
@@ -62,9 +58,19 @@ public class Controller implements Initializable {
     @FXML
     private Button btnSubmit;
 
+    @FXML
+    private Label submitText;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String[] items = {"hui", "pizda", "chlen"};
-        instituteName.getItems().addAll(items);
+        String[] instituteNameArr = {"hui", "pizda", "chlen"};
+        String[] practiceNameArr = {"hui", "pizda", "chlen"};
+        String[] departmentNameArr = {"hui", "pizda", "chlen"};
+        Integer[] courseNumArr= {1,2,3,4,5,6};
+        instituteName.getItems().addAll(instituteNameArr);
+        practiceName.getItems().addAll(practiceNameArr);
+        departmentName.getItems().addAll(departmentNameArr);
+        courseNum.getItems().addAll(courseNumArr);
+        }
+
     }
-}
