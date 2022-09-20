@@ -3,17 +3,19 @@ package com.example.universityproject.frontend;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-public class Controller {
-    ObservableList<String> items;
-    @FXML
-    private ComboBox<?> instituteName;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+public class Controller implements Initializable {
+    @FXML
+    private ComboBox<String> instituteName;
 
     @FXML
     private ComboBox<?> practiceName;
@@ -60,4 +62,9 @@ public class Controller {
     @FXML
     private Button btnSubmit;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        String[] items = {"hui", "pizda", "chlen"};
+        instituteName.getItems().addAll(items);
+    }
 }

@@ -110,13 +110,13 @@ public class ClassForTests {
                     break;
                 default:
                     break;
-            }//add default statement for switch-case
+            }
         }
         for(int i = 0; i < students.size(); i++){
             XWPFDocument doc = new XWPFDocument();
-            FileOutputStream out = new FileOutputStream("src/main/resources/wordAndExcelTemplates/" + students.get(i) + ".docx");
-            objUpdateWord.updateDocument(outputPath, "src/main/resources/wordAndExcelTemplates/" + students.get(i) + ".docx", "${studentFN}", students.get(i));
-            objUpdateWord.updateDocument(outputPath, "src/main/resources/wordAndExcelTemplates/" + students.get(i) + ".docx", "${studentFullName}", studentInShortForm.get(i));
+            FileOutputStream out = new FileOutputStream("src/main/resources/wordAndExcelTemplates/TitleLists.docx");
+            objUpdateWord.updateDocument(outputPath, "src/main/resources/wordAndExcelTemplates/TitleLists.docx", "${studentFN}", students.get(i));
+            objUpdateWord.updateDocument(outputPath, "src/main/resources/wordAndExcelTemplates/TitleLists.docx", "${studentFullName}", studentInShortForm.get(i));
             doc.write(out);
         }
     }
