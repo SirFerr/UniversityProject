@@ -3,7 +3,9 @@ package com.example.universityproject.backend;
 
 import com.example.universityproject.backend.ExcelParsing;
 import com.example.universityproject.backend.UpdateDocument;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,9 +68,9 @@ public class ClassForTests {
                 case "${sessionDate}":
                     objUpdateWord.updateDocument(inputPath, outputPath, "${sessionDate}", sessionDate);
                     break;
-                case "${studentFN}":
+                /*case "${studentFN}":
                     objUpdateWord.updateDocument(inputPath, outputPath, "${studentFN}", studentFN);
-                    break;
+                    break;*/
                 case "${supervisorFN}":
                     objUpdateWord.updateDocument(inputPath, outputPath, "${supervisorFN}", supervisorFN);
                     break;
@@ -81,10 +83,10 @@ public class ClassForTests {
                 case "${groupName}":
                     objUpdateWord.updateDocument(inputPath, outputPath, "${groupName}", groupName);
                     break;
-                case "${studentFullName}":
+                /*case "${studentFullName}":
                     //add for statements for students
                     objUpdateWord.updateDocument(inputPath, outputPath, "${studentFullName}", studentFullName);
-                    break;
+                    break;*/
                 case "${practicePlaceAndTime}":
                     objUpdateWord.updateDocument(inputPath, outputPath, "${practicePlaceAndTime}", practicePlaceAndTime);
                     break;
@@ -106,7 +108,16 @@ public class ClassForTests {
                 case "${profileName}":
                     objUpdateWord.updateDocument(inputPath, outputPath, "${profileName}", profileName);
                     break;
+                default:
+                    break;
             }//add default statement for switch-case
+        }
+        for(int i = 0; i < students.size(); i++){
+            XWPFDocument doc = new XWPFDocument();
+            FileOutputStream out = new FileOutputStream("src/main/resources/wordAndExcelTemplates/" + students.get(i) + ".docx");
+            objUpdateWord.updateDocument(outputPath, "src/main/resources/wordAndExcelTemplates/" + students.get(i) + ".docx", "${studentFN}", students.get(i));
+            objUpdateWord.updateDocument(outputPath, "src/main/resources/wordAndExcelTemplates/" + students.get(i) + ".docx", "${studentFullName}", studentInShortForm.get(i));
+            doc.write(out);
         }
     }
 }
