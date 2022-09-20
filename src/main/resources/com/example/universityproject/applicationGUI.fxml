@@ -12,136 +12,127 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="850.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.universityproject.Controller">
    <center>
       <AnchorPane style="-fx-background-color: #E6EFFE;">
          <children>
-            <GridPane>
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-               </rowConstraints>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="838.0" prefWidth="600.0">
                <children>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="600.0">
+                  <GridPane layoutX="10.0" layoutY="39.0" maxHeight="-Infinity" maxWidth="-Infinity" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
-                        <GridPane layoutX="10.0" layoutY="39.0" maxHeight="-Infinity" maxWidth="-Infinity" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                          <columnConstraints>
-                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выбереите институт" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
-                              <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выбереите кафедру" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="2" />
-                              <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выбереите тип практики" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="4" />
-                              <ComboBox fx:id="instituteChoise" editable="true" prefHeight="31.0" prefWidth="668.0" GridPane.rowIndex="1" />
-                              <ComboBox fx:id="practiсeChoise" editable="true" prefHeight="31.0" prefWidth="668.0" GridPane.rowIndex="5" />
-                              <ComboBox fx:id="departmentChoise" editable="true" prefHeight="33.0" prefWidth="620.0" GridPane.rowIndex="3" />
-                           </children>
-                        </GridPane>
-                        <GridPane layoutX="10.0" layoutY="239.0" prefHeight="249.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                           <columnConstraints>
-                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
-                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Label depthTest="DISABLE" graphicTextGap="10.0" text="Введите номер приказа" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="2" />
-                              <Label alignment="CENTER" depthTest="DISABLE" graphicTextGap="10.0" text="Введите данные руководителя (Фамилия И.О)" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                              <Label depthTest="DISABLE" graphicTextGap="10.0" text="Введите данные зав. Кафедрой (Фамилия И.О)" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                              <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выберите дату приказа" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
-                              <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выберите дату получения задания" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="2" />
-                              <Label depthTest="DISABLE" graphicTextGap="10.0" text="Введите должность на практике" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="4" />
-                              <TextField fx:id="jobTitle" GridPane.rowIndex="5" />
-                              <TextField fx:id="orderNumber" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <TextField fx:id="nameSupervisor" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                              <TextField fx:id="nameHeadOfDepartment" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                              <DatePicker fx:id="dateOfOrder" GridPane.rowIndex="1" />
-                              <DatePicker fx:id="dateOfTask" GridPane.rowIndex="3" />
-                           </children>
-                        </GridPane>
-                        <GridPane layoutX="10.0" layoutY="488.0" prefHeight="66.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                           <columnConstraints>
-                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Label depthTest="DISABLE" graphicTextGap="10.0" text="Введите место и время практики" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
-                              <TextField fx:id="placeOfPractice" GridPane.rowIndex="1" />
-                           </children>
-                        </GridPane>
-                        <GridPane layoutX="10.0" layoutY="554.0" prefHeight="66.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                           <columnConstraints>
-                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
-                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Label depthTest="DISABLE" graphicTextGap="10.0" text="Введите номер группы" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="2" />
-                              <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выберите номер курса" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
-                              <TextField fx:id="groupNumber" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <ChoiceBox prefHeight="31.0" prefWidth="296.0" GridPane.rowIndex="1" />
-                           </children>
-                        </GridPane>
-                        <GridPane layoutX="10.0" layoutY="620.0" prefHeight="66.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                           <columnConstraints>
-                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выберите направление подготовки" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
-                              <TextField fx:id="nameDirectionOfTraining" GridPane.rowIndex="1" />
-                           </children>
-                        </GridPane>
-                        <GridPane layoutX="10.0" layoutY="686.0" prefHeight="169.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                           <columnConstraints>
-                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints maxHeight="104.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="188.0" minHeight="0.0" prefHeight="104.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выберите направление подготовки" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
-                              <AnchorPane prefHeight="50.0" prefWidth="580.0" GridPane.rowIndex="1">
-                                 <children>
-                                    <Button fx:id="btnFileChooser" layoutX="234.0" layoutY="43.0" mnemonicParsing="false" text="Выбор файла" />
-                                 </children>
-                              </AnchorPane>
-                           </children>
-                        </GridPane>
-                        <Button fx:id="btnSubmit" layoutX="245.0" layoutY="855.0" mnemonicParsing="false" text="Подтвердить" />
-                        <Label depthTest="DISABLE" layoutX="243.0" layoutY="14.0" prefHeight="21.0" text="University project" textAlignment="CENTER" textOverrun="CLIP" />
+                        <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выбереите институт" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+                        <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выбереите кафедру" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="2" />
+                        <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выбереите тип практики" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="instituteName" editable="true" prefHeight="31.0" prefWidth="668.0" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="practiceName" editable="true" prefHeight="31.0" prefWidth="668.0" GridPane.rowIndex="5" />
+                        <ComboBox fx:id="departmentName" editable="true" prefHeight="33.0" prefWidth="620.0" GridPane.rowIndex="3" />
                      </children>
-                  </AnchorPane>
+                  </GridPane>
+                  <GridPane layoutX="10.0" layoutY="239.0" prefHeight="249.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label depthTest="DISABLE" graphicTextGap="10.0" text="Введите номер приказа" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="2" />
+                        <Label alignment="CENTER" depthTest="DISABLE" graphicTextGap="10.0" text="Введите данные руководителя (Фамилия И.О)" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Label depthTest="DISABLE" graphicTextGap="10.0" text="Введите данные зав. Кафедрой (Фамилия И.О)" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                        <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выберите дату приказа" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+                        <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выберите дату получения задания" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="2" />
+                        <Label depthTest="DISABLE" graphicTextGap="10.0" text="Введите должность на практике" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="4" />
+                        <TextField fx:id="position" GridPane.rowIndex="5" />
+                        <TextField fx:id="orderName" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField fx:id="supervisorFN" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <TextField fx:id="headOfDFN" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                        <DatePicker fx:id="orderDate" GridPane.rowIndex="1" />
+                        <DatePicker fx:id="currentDate" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="10.0" layoutY="488.0" prefHeight="66.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label depthTest="DISABLE" graphicTextGap="10.0" text="Введите место и время практики" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+                        <TextField fx:id="practicePlaceAndTime" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="10.0" layoutY="554.0" prefHeight="66.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label depthTest="DISABLE" graphicTextGap="10.0" text="Введите номер группы" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="2" />
+                        <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выберите номер курса" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+                        <TextField fx:id="groupName" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <ChoiceBox fx:id="courseNum" prefHeight="31.0" prefWidth="296.0" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="10.0" layoutY="620.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выберите направление подготовки" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+                        <ComboBox fx:id="directionName" prefHeight="31.0" prefWidth="672.0" GridPane.rowIndex="1" />
+                        <TextField fx:id="profileName" prefHeight="122.0" prefWidth="580.0" GridPane.rowIndex="3" />
+                        <Label depthTest="DISABLE" graphicTextGap="10.0" text="Введите название профиля" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="10.0" layoutY="760.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="104.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="188.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label depthTest="DISABLE" graphicTextGap="10.0" prefHeight="21.0" text="Список студентов" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
+                        <Button fx:id="btnFileChooser" mnemonicParsing="false" text="Выбор файла" GridPane.rowIndex="1" />
+                        <Button fx:id="btnSubmit" mnemonicParsing="false" text="Подтвердить" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <Label depthTest="DISABLE" layoutX="243.0" layoutY="14.0" prefHeight="21.0" text="University project" textAlignment="CENTER" textOverrun="CLIP" />
                </children>
-            </GridPane>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </center>
