@@ -1,13 +1,10 @@
 package com.example.universityproject;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.paint.Color;
+
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -76,7 +73,12 @@ public class Controller implements Initializable {
         practiceName.getItems().addAll(practiceNameArr);
         departmentName.getItems().addAll(departmentNameArr);
         courseNum.getItems().addAll(courseNumArr);
-
+        btnFileChooser.setOnAction(e ->{//в file храниться полный путь к файлу
+            FileChooser fileChooser = new FileChooser();
+            String file;
+            file= fileChooser.showOpenDialog(null).getPath();
+            btnFileChooser.setText("Файл выбран");
+        });
         btnSubmit.setOnAction(e -> {
             submitText.setText("Запущен процесс создания файлов");
             instituteName.getValue();//получение текущего значения из ComboBox
