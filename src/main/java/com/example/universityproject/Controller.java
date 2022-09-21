@@ -86,4 +86,140 @@ public class Controller implements Initializable {
         });
 
     }
+
+    public ComboBox<String> getInstituteName() {
+        return instituteName;
+    }
+
+    public void setInstituteName(ComboBox<String> instituteName) {
+        this.instituteName = instituteName;
+    }
+
+    public ComboBox<String> getPracticeName() {
+        return practiceName;
+    }
+
+    public void setPracticeName(ComboBox<String> practiceName) {
+        this.practiceName = practiceName;
+    }
+
+    public ComboBox<String> getDepartmentName() {
+        return departmentName;
+    }
+
+    public void setDepartmentName(ComboBox<String> departmentName) {
+        this.departmentName = departmentName;
+    }
+
+    public TextField getPosition() {
+        return position;
+    }
+
+    public void setPosition(TextField position) {
+        this.position = position;
+    }
+
+    public TextField getOrderName() {
+        return orderName;
+    }
+
+    public void setOrderName(TextField orderName) {
+        this.orderName = orderName;
+    }
+
+    public TextField getSupervisorFN() {
+        return supervisorFN;
+    }
+
+    public void setSupervisorFN(TextField supervisorFN) {
+        this.supervisorFN = supervisorFN;
+    }
+
+    public TextField getHeadOfDFN() {
+        return headOfDFN;
+    }
+
+    public void setHeadOfDFN(TextField headOfDFN) {
+        this.headOfDFN = headOfDFN;
+    }
+
+    public DatePicker getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(DatePicker orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public DatePicker getCurrentDate() {
+        return currentDate;
+    }
+
+    public void setCurrentDate(DatePicker currentDate) {
+        this.currentDate = currentDate;
+    }
+
+    public TextField getPracticePlaceAndTime() {
+        return practicePlaceAndTime;
+    }
+
+    public void setPracticePlaceAndTime(TextField practicePlaceAndTime) {
+        this.practicePlaceAndTime = practicePlaceAndTime;
+    }
+
+    public TextField getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(TextField groupName) {
+        this.groupName = groupName;
+    }
+
+    public ChoiceBox<Integer> getCourseNum() {
+        return courseNum;
+    }
+
+    public void setCourseNum(ChoiceBox<Integer> courseNum) {
+        this.courseNum = courseNum;
+    }
+
+    public ComboBox<String> getDirectionName() {
+        return directionName;
+    }
+
+    public void setDirectionName(ComboBox<String> directionName) {
+        this.directionName = directionName;
+    }
+
+    public TextField getProfileName() {
+        return profileName;
+    }
+
+    public void setProfileName(TextField profileName) {
+        this.profileName = profileName;
+    }
+
+    public Button getBtnFileChooser() {
+        return btnFileChooser;
+    }
+
+    public void setBtnFileChooser(Button btnFileChooser) {
+        this.btnFileChooser = btnFileChooser;
+    }
+
+    public Button getBtnSubmit() {
+        return btnSubmit;
+    }
+
+    public void setBtnSubmit(Button btnSubmit) {
+        this.btnSubmit = btnSubmit;
+    }
+
+    public Label getSubmitText() {
+        return submitText;
+    }
+
+    public void setSubmitText(Label submitText) {
+        this.submitText = submitText;
+    }
 }
