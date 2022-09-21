@@ -71,20 +71,19 @@ public class Controller implements Initializable {
         String[] instituteNameArr = {"hui", "pizda", "chlen"};
         String[] practiceNameArr = {"hui", "pizda", "chlen"};
         String[] departmentNameArr = {"hui", "pizda", "chlen"};
-        Integer[] courseNumArr= {1,2,3,4,5,6};
+        Integer[] courseNumArr = {1, 2, 3, 4, 5, 6};
         instituteName.getItems().addAll(instituteNameArr);
         practiceName.getItems().addAll(practiceNameArr);
         departmentName.getItems().addAll(departmentNameArr);
         courseNum.getItems().addAll(courseNumArr);
 
-        }
-    public void start() {
-        btnSubmit.setOnAction(e->{
+        btnSubmit.setOnAction(e -> {
             submitText.setText("Запущен процесс создания файлов");
             instituteName.getValue();//получение текущего значения из ComboBox
             position.getText();//получение текущего значения из TextField
             currentDate.getValue();//получение текущего значения из DatePicker
             submitText.setText("Файлы созданы");
-    });
-        }
+        });
+
+    }
 }
