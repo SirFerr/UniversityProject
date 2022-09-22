@@ -77,8 +77,7 @@ public class Controller implements Initializable,FileReplacerAndMerger {
         courseNum.getItems().addAll(courseNumArr);
         btnFileChooser.setOnAction(e ->{//в file храниться полный путь к файлу
             FileChooser fileChooser = new FileChooser();
-            String file;
-            file= fileChooser.showOpenDialog(null).getPath();
+            String file = fileChooser.showOpenDialog(null).getPath();
             btnFileChooser.setText("Файл выбран");
         });
         btnSubmit.setOnAction(e -> {

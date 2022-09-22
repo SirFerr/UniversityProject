@@ -14,7 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface FileReplacerAndMerger {
-    public default void fileReplacerAndMerger(ComboBox instituteName, ComboBox departmentName,
+    String pathToTitleList = "src/main/resources/wordAndExcelTemplates/TitleLists.docx";
+    default void fileReplacerAndMerger(ComboBox instituteName, ComboBox departmentName,
                                               ComboBox practiceName, DatePicker orderDate,
                                               TextField orderName, DatePicker sessionDate,
                                               TextField supervisorFN, int currentYear,
@@ -61,9 +62,9 @@ public interface FileReplacerAndMerger {
         String outputPath = "src/main/resources/wordAndExcelTemplates/fileForTesting.docx";
 
         // for statement to replace everything in the project
-        for(int i = 0; i < replaceableNames.size(); i++){
+        for (String replaceableName : replaceableNames) {
             //switch-case to work with key-words
-            switch (replaceableNames.get(i)) {
+            switch (replaceableName) {
                 case "${instituteName}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${instituteName}", (String) instituteName.getValue());
                 case "${departmentName}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${departmentName}", (String) departmentName.getValue());
                 case "${practiceName}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${practiceName}", (String) practiceName.getValue());
@@ -86,20 +87,23 @@ public interface FileReplacerAndMerger {
             }
         }
         for(int i = 0; i < students.size(); i++){
-            XWPFDocument doc = new XWPFDocument();
-            FileOutputStream out = new FileOutputStream("src/main/resources/wordAndExcelTemplates/TitleLists.docx");
-            objUpdateWord.updateDocument(outputPath, "src/main/resources/wordAndExcelTemplates/TitleLists.docx", "${studentFN}", students.get(i));
-            objUpdateWord.updateDocument(outputPath, "src/main/resources/wordAndExcelTemplates/TitleLists.docx", "${studentFullName}", studentInShortForm.get(i));
-            doc.write(out);
-            String filePath1 = "src/main/resources/wordAndExcelTemplates/TitleLists.docx";
-            String filePath2 = "src/main/resources/wordAndExcelTemplates/fileForTesting.docx";
-            //Load the first document
-            Document document = new Document(filePath1);
-            //Insert content of the second document into the first document
-            document.insertTextFromFile(filePath2, FileFormat.Docx_2013);
-            objUpdateWord.updateDocument("src/main/resources/wordAndExcelTemplates/TitleLists.docx", "src/main/resources/wordAndExcelTemplates/TitleLists.docx", "Evaluation Warning: The document was created with Spire.Doc for JAVA.", "");
-            //Save the resultant document
-            document.saveToFile("src/main/resources/wordAndExcelTemplates/TitleLists.docx", FileFormat.Docx_2013);
+            try(XWPFDocument doc = new XWPFDocument(); FileOutputStream out = new FileOutputStream(pathToTitleList)){
+                objUpdateWord.updateDocument(outputPath, pathToTitleList, "${studentFN}", students.get(i));
+                objUpdateWord.updateDocument(outputPath, pathToTitleList, "${studentFullName}", studentInShortForm.get(i));
+                doc.write(out);
+                String filePath2 = "src/main/resources/wordAndExcelTemplates/fileForTesting.docx";
+                //Load the first document
+                Document document = new Document(pathToTitleList);
+                //Insert content of the second document into the first document
+                document.insertTextFromFile(filePath2, FileFormat.Docx_2013);
+                objUpdateWord.updateDocument(pathToTitleList, pathToTitleList, "Evaluation Warning: The document was created with Spire.Doc for JAVA.", "");
+                //Save the resultant document
+                document.saveToFile(pathToTitleList, FileFormat.Docx_2013);
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+
         }
     }
 }
