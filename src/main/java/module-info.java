@@ -5,7 +5,6 @@
 
 module com.example.universityproject {
     requires javafx.controls;
-    requires org.slf4j;
     requires javafx.fxml;
     requires org.apache.logging.log4j;
     requires org.apache.logging.log4j.core;
