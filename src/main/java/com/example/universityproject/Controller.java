@@ -1,6 +1,7 @@
 package com.example.universityproject;
 
 
+import com.example.universityproject.backend.FileReplacerAndMerger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -8,10 +9,11 @@ import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class Controller implements Initializable,FileReplacerAndMerger {
     @FXML
     private ComboBox<String> instituteName;
 
@@ -81,6 +83,15 @@ public class Controller implements Initializable {
         });
         btnSubmit.setOnAction(e -> {
             submitText.setText("Запущен процесс создания файлов");
+            try {
+                fileReplacerAndMerger(instituteName,departmentName,practiceName,
+                        orderDate,orderName, currentDate,supervisorFN,
+                        2022,courseNum,groupName,practicePlaceAndTime,
+                        position,currentDate,headOfDFN,directionName,
+                        directionName,profileName);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
             instituteName.getValue();//получение текущего значения из ComboBox
             position.getText();//получение текущего значения из TextField
             currentDate.getValue();//получение текущего значения из DatePicker

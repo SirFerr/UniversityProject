@@ -13,11 +13,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileReplacerAndMerger {
-    public void fileReplacerAndMerger(ComboBox instituteName, ComboBox departmentName, ComboBox practiceName, DatePicker orderDate, TextField orderName,
-                                      ComboBox sessionDate, TextField supervisorFN, int currentYear, ChoiceBox courseNum, TextField groupName,
-                                      TextField practicePlaceAndTime, TextField position, DatePicker currentDate, TextField headOfDFN, ChoiceBox directionNum,
-                                      ComboBox directionName, TextField profileName) throws IOException {
+public interface FileReplacerAndMerger {
+    public default void fileReplacerAndMerger(ComboBox instituteName, ComboBox departmentName,
+                                              ComboBox practiceName, DatePicker orderDate,
+                                              TextField orderName, DatePicker sessionDate,
+                                              TextField supervisorFN, int currentYear,
+                                              ChoiceBox courseNum, TextField groupName,
+                                              TextField practicePlaceAndTime, TextField position,
+                                              DatePicker currentDate, TextField headOfDFN,
+                                              ComboBox directionNum, ComboBox directionName,
+                                              TextField profileName) throws IOException {
         ExcelParsing objForExcelParsing = new ExcelParsing();
         //get arrayList of Students and write file Path
         List<String> students = objForExcelParsing.pushToArrayList("src/main/resources/wordAndExcelTemplates/Пример таблицы.xlsx");
@@ -64,7 +69,7 @@ public class FileReplacerAndMerger {
                 case "${practiceName}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${practiceName}", (String) practiceName.getValue());
                 case "${orderDate}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${orderDate}", String.valueOf(orderDate.getValue()));
                 case "${orderName}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${orderName}", orderName.getText());
-                case "${sessionDate}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${sessionDate}", (String) sessionDate.getValue());
+                case "${sessionDate}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${sessionDate}", String.valueOf(sessionDate.getValue()));
                 case "${supervisorFN}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${supervisorFN}", supervisorFN.getText());
                 case "${currentYear}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${currentYear}", String.valueOf(currentYear));
                 case "${courseNum}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${courseNum}", (String) courseNum.getValue());
