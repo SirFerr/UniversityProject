@@ -29,8 +29,8 @@ public interface FileReplacerAndMerger {
         List<String> students = objForExcelParsing.pushToArrayList("src/main/resources/wordAndExcelTemplates/Пример таблицы.xlsx");
         List<String> studentInShortForm = StudentsFIOConverter.cutStud(students);
         //delete in future
-        System.out.println(studentInShortForm.get(5));
-        System.out.println(students);
+        //System.out.println(studentInShortForm.get(5));
+        //System.out.println(students);
         // initialise arraylist witch contains key-words(like ${id}, &{name} etc.)
         ArrayList<String> replaceableNames = new ArrayList<>(){{
             add("${instituteName}");
@@ -88,14 +88,19 @@ public interface FileReplacerAndMerger {
         }
         for(int i = 0; i < students.size(); i++){
             try(XWPFDocument doc = new XWPFDocument(); FileOutputStream out = new FileOutputStream(pathToTitleList)){
-                objUpdateWord.updateDocument(outputPath, pathToTitleList, "${studentFN}", students.get(i));
-                objUpdateWord.updateDocument(outputPath, pathToTitleList, "${studentFullName}", studentInShortForm.get(i));
-                doc.write(out);
-                String filePath2 = "src/main/resources/wordAndExcelTemplates/fileForTesting.docx";
+                if (i == 0) {
+                    objUpdateWord.updateDocument(outputPath, pathToTitleList, "${studentFN}", students.get(i));
+                    objUpdateWord.updateDocument(outputPath, pathToTitleList, "${studentFullName}", studentInShortForm.get(i));
+                    doc.write(out);
+                }else{
+                    objUpdateWord.updateDocument(pathToTitleList, pathToTitleList, "${studentFN}", students.get(i));
+                    objUpdateWord.updateDocument(pathToTitleList, pathToTitleList, "${studentFullName}", studentInShortForm.get(i));
+                    doc.write(out);
+                }
                 //Load the first document
                 Document document = new Document(pathToTitleList);
                 //Insert content of the second document into the first document
-                document.insertTextFromFile(filePath2, FileFormat.Docx_2013);
+                document.insertTextFromFile(outputPath, FileFormat.Docx_2013);
                 objUpdateWord.updateDocument(pathToTitleList, pathToTitleList, "Evaluation Warning: The document was created with Spire.Doc for JAVA.", "");
                 //Save the resultant document
                 document.saveToFile(pathToTitleList, FileFormat.Docx_2013);
@@ -103,7 +108,6 @@ public interface FileReplacerAndMerger {
             catch (Exception e){
                 e.printStackTrace();
             }
-
         }
     }
 }
