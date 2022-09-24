@@ -67,7 +67,12 @@ public class Controller implements Initializable,FileReplacerAndMerger {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String[] instituteNameArr = {"hui", "pizda", "chlen"};
+        String[] instituteNameArr = {"Институт информационных технологий",
+                "Институт искусственного технологий",
+                "Институт кибербезопасности и цифровых технологий",
+                "Институт перспективных технологий и индустриального программирования",
+                "Институт технологий управления","Институт тонких химических технологий им. М.В. Ломоносова" };
+
         String[] practiceNameArr = {"hui", "pizda", "chlen"};
         String[] departmentNameArr = {"hui", "pizda", "chlen"};
         Integer[] courseNumArr = {1, 2, 3, 4, 5, 6};
