@@ -55,7 +55,7 @@ public class DocumentBuilder {
 
 
     }
-    private void buildDoc(){
+    public void buildDoc(){
         for (XWPFParagraph p : doc.getParagraphs()) {
             List<XWPFRun> runs = p.getRuns();
             if (runs != null) {
