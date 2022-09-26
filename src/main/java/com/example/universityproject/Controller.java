@@ -51,6 +51,8 @@ public class Controller implements Initializable,FileReplacerAndMerger {
     private ChoiceBox<Integer> courseNum;
 
     @FXML
+    private TextField directionName;
+    @FXML
     private TextField profileName;
 
     @FXML
@@ -89,7 +91,7 @@ public class Controller implements Initializable,FileReplacerAndMerger {
                 fileReplacerAndMerger(instituteName, departmentName, practiceName,
                         orderDate, orderName, currentDate, supervisorFN,
                         2022, courseNum, groupName, practicePlaceAndTime,
-                        position, currentDate, headOfDFN, profileName);
+                        position, currentDate, headOfDFN, directionName,profileName);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
