@@ -16,6 +16,7 @@ import java.util.stream.IntStream;
 
 public interface FileReplacerAndMerger {
     String pathToTitleList = "src/main/resources/wordAndExcelTemplates/TitleLists.docx";
+
     default void fileReplacerAndMerger(ComboBox instituteName, ComboBox departmentName,
                                               ComboBox practiceName, DatePicker orderDate,
                                               TextField orderName, DatePicker sessionDate,
@@ -28,6 +29,7 @@ public interface FileReplacerAndMerger {
         ExcelParsing objForExcelParsing = new ExcelParsing();
         //get arrayList of Students and write file Path
         List<String> students = objForExcelParsing.pushToArrayList("src/main/resources/wordAndExcelTemplates/Пример таблицы.xlsx");
+
         List<String> studentInShortForm = StudentsFIOConverter.cutStud(students);
         //delete in future
         //System.out.println(studentInShortForm.get(5));
@@ -54,6 +56,7 @@ public interface FileReplacerAndMerger {
             add("${directionName}");
             add("${profileName}");
         }};
+        Template template = new Template(replaceableNames);
 
         //initialise object to use methode updateDocument
         UpdateDocument objUpdateWord = new UpdateDocument();
@@ -66,30 +69,31 @@ public interface FileReplacerAndMerger {
         for (String replaceableName : replaceableNames) {
             //switch-case to work with key-words
             switch (replaceableName) {
-                case "${instituteName}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${instituteName}", (String) instituteName.getValue());
-                case "${departmentName}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${departmentName}", (String) departmentName.getValue());
-                case "${practiceName}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${practiceName}", (String) practiceName.getValue());
-                case "${orderDate}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${orderDate}", String.valueOf(orderDate.getValue()));
-                case "${orderName}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${orderName}", orderName.getText());
-                case "${sessionDate}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${sessionDate}", String.valueOf(sessionDate.getValue()));
-                case "${supervisorFN}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${supervisorFN}", supervisorFN.getText());
-                case "${currentYear}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${currentYear}", String.valueOf(currentYear));
-                case "${courseNum}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${courseNum}", (String) courseNum.getValue());
-                case "${groupName}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${groupName}", groupName.getText());
-                case "${practicePlaceAndTime}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${practicePlaceAndTime}", practicePlaceAndTime.getText());
-                case "${position}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${position}", position.getText());
-                case "${currentDate}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${currentDate}", String.valueOf(currentDate.getValue()));
-                case "${headOfDFN}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${headOfDFN}", headOfDFN.getText());
-                case "${directionNum}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${directionNum}", (String) directionNum.getValue());
-                case "${directionName}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${directionName}", (String) directionName.getValue());
-                case "${profileName}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${profileName}", profileName.getText());
+                case "${instituteName}" -> template.setField("${instituteName}",(String) instituteName.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${instituteName}", (String) instituteName.getValue());
+                case "${departmentName}" -> template.setField("${departmentName}",(String) departmentName.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${departmentName}", (String) departmentName.getValue());
+                case "${practiceName}" -> template.setField("${practiceName}",(String) practiceName.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${practiceName}", (String) practiceName.getValue());
+                case "${orderDate}" -> template.setField("${orderDate}",String.valueOf(orderDate.getValue()));//objUpdateWord.updateDocument(inputPath, outputPath, "${orderDate}", String.valueOf(orderDate.getValue()));
+                case "${orderName}" -> template.setField("$${orderName}", orderName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${orderName}", orderName.getText());
+                case "${sessionDate}" -> template.setField("${sessionDate}",String.valueOf(sessionDate.getValue()));//objUpdateWord.updateDocument(inputPath, outputPath, "${sessionDate}", String.valueOf(sessionDate.getValue()));
+                case "${supervisorFN}" -> template.setField("${supervisorFN}",supervisorFN.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${supervisorFN}", supervisorFN.getText());
+                case "${currentYear}" -> template.setField("${currentYear}",String.valueOf(currentYear));//objUpdateWord.updateDocument(inputPath, outputPath, "${currentYear}", String.valueOf(currentYear));
+                case "${courseNum}" -> template.setField("${courseNum}",(String) courseNum.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${courseNum}", (String) courseNum.getValue());
+                case "${groupName}" -> template.setField("${groupName}",(String) instituteName.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${groupName}", groupName.getText());
+                case "${practicePlaceAndTime}" -> template.setField("${practicePlaceAndTime}",practicePlaceAndTime.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${practicePlaceAndTime}", practicePlaceAndTime.getText());
+                case "${position}" -> template.setField("${position}",position.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${position}", position.getText());
+                case "${currentDate}" -> template.setField("${currentDate}",String.valueOf(currentDate.getValue()));//objUpdateWord.updateDocument(inputPath, outputPath, "${currentDate}", String.valueOf(currentDate.getValue()));
+                case "${headOfDFN}" -> template.setField("${headOfDFN}",headOfDFN.getText()); //objUpdateWord.updateDocument(inputPath, outputPath, "${headOfDFN}", headOfDFN.getText());
+                case "${directionNum}" -> template.setField("${directionNum}",(String) directionNum.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${directionNum}", (String) directionNum.getValue());
+                case "${directionName}" -> template.setField("${directionName}",(String) instituteName.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${directionName}", (String) directionName.getValue());
+                case "${profileName}" -> template.setField("${profileName}",profileName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${profileName}", profileName.getText());
                 default -> {
                 }
+
             }
         }
         IntStream.range(0, students.size()).forEach(i -> {
             if (i == 0) {
-                try {
+                try{
                     objUpdateWord.updateDocument(outputPath, pathToTitleList, "${studentFN}", students.get(i));
                 } catch (IOException e) {
                     throw new RuntimeException(e);

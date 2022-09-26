@@ -18,4 +18,12 @@ public class    StudentsFIOConverter {
         }
         return newStudentsFormat;
     }
+    public static String cutStud(String student){
+            StringBuilder latter = new StringBuilder();
+            Matcher m = Pattern.compile("\\s\\W").matcher(student);
+            while (m.find()) {
+                latter.append(m.group() +".");
+            }
+           return student.replaceAll("\\s\\W+", String.valueOf(latter));
+    }
 }
