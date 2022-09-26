@@ -12,6 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public interface FileReplacerAndMerger {
     String pathToTitleList = "src/main/resources/wordAndExcelTemplates/TitleLists.docx";
@@ -86,28 +87,41 @@ public interface FileReplacerAndMerger {
                 }
             }
         }
-        for(int i = 0; i < students.size(); i++){
-            try(XWPFDocument doc = new XWPFDocument(); FileOutputStream out = new FileOutputStream(pathToTitleList)){
-                if (i == 0) {
+        IntStream.range(0, students.size()).forEach(i -> {
+            if (i == 0) {
+                try {
                     objUpdateWord.updateDocument(outputPath, pathToTitleList, "${studentFN}", students.get(i));
-                    objUpdateWord.updateDocument(outputPath, pathToTitleList, "${studentFullName}", studentInShortForm.get(i));
-                    doc.write(out);
-                }else{
-                    objUpdateWord.updateDocument(pathToTitleList, pathToTitleList, "${studentFN}", students.get(i));
-                    objUpdateWord.updateDocument(pathToTitleList, pathToTitleList, "${studentFullName}", studentInShortForm.get(i));
-                    doc.write(out);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
-                //Load the first document
-                Document document = new Document(pathToTitleList);
-                //Insert content of the second document into the first document
-                document.insertTextFromFile(outputPath, FileFormat.Docx_2013);
+                try {
+                    objUpdateWord.updateDocument(outputPath, pathToTitleList, "${studentFullName}", studentInShortForm.get(i));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            } else {
+                try {
+                    objUpdateWord.updateDocument(pathToTitleList, pathToTitleList, "${studentFN}", students.get(i));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                try {
+                    objUpdateWord.updateDocument(pathToTitleList, pathToTitleList, "${studentFullName}", studentInShortForm.get(i));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            //Load the first document
+            Document document = new Document(pathToTitleList);
+            //Insert content of the second document into the first document
+            document.insertTextFromFile(outputPath, FileFormat.Docx_2013);
+            try {
                 objUpdateWord.updateDocument(pathToTitleList, pathToTitleList, "Evaluation Warning: The document was created with Spire.Doc for JAVA.", "");
-                //Save the resultant document
-                document.saveToFile(pathToTitleList, FileFormat.Docx_2013);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-        }
+            //Save the resultant document
+            document.saveToFile(pathToTitleList, FileFormat.Docx_2013);
+        });
     }
 }
