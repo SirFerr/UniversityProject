@@ -22,7 +22,6 @@ public interface FileReplacerAndMerger {
                                               ChoiceBox courseNum, TextField groupName,
                                               TextField practicePlaceAndTime, TextField position,
                                               DatePicker currentDate, TextField headOfDFN,
-                                              ComboBox directionNum, ComboBox directionName,
                                               TextField profileName) throws IOException {
         ExcelParsing objForExcelParsing = new ExcelParsing();
         //get arrayList of Students and write file Path
@@ -79,8 +78,8 @@ public interface FileReplacerAndMerger {
                 case "${position}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${position}", position.getText());
                 case "${currentDate}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${currentDate}", String.valueOf(currentDate.getValue()));
                 case "${headOfDFN}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${headOfDFN}", headOfDFN.getText());
-                case "${directionNum}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${directionNum}", (String) directionNum.getValue());
-                case "${directionName}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${directionName}", (String) directionName.getValue());
+                case "${directionNum}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${directionNum}", profileName.getText());
+                case "${directionName}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${directionName}", profileName.getText());
                 case "${profileName}" -> objUpdateWord.updateDocument(inputPath, outputPath, "${profileName}", profileName.getText());
                 default -> {
                 }
