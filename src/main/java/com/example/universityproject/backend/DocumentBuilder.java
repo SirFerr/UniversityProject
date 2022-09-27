@@ -2,7 +2,6 @@ package com.example.universityproject.backend;
 
 import org.apache.poi.xwpf.usermodel.*;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,9 +9,9 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class DocumentBuilder {
-    private Template template = null;
-    private String output = null;
-    private String input = null;
+    private Template template;
+    private String output;
+    private String input;
 
     private XWPFDocument doc = null;
 

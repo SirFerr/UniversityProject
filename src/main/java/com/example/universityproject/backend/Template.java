@@ -1,16 +1,14 @@
 package com.example.universityproject.backend;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class Template {
     private String studentFullName;
-    private String studentShortName = null;
+    private String studentShortName;
     private Map<String,String> keysAndValues;
     public void setStudentFullName(String studentFullName){
         this.studentFullName = studentFullName;

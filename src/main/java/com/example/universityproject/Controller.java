@@ -5,10 +5,8 @@ import com.example.universityproject.backend.FileReplacerAndMerger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-
 import javafx.stage.FileChooser;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -117,9 +115,6 @@ public class Controller implements Initializable{
             submitText.setText("Файлы созданы");
         });
 
-    }
-
-    private void fileReplacerAndMerger(ComboBox<String> instituteName, ComboBox<String> departmentName, ComboBox<String> practiceName, DatePicker orderDate, TextField orderName, DatePicker currentDate, TextField supervisorFN, int i, ChoiceBox<Integer> courseNum, TextField groupName, TextField practicePlaceAndTime, TextField position, DatePicker currentDate1, TextField headOfDFN, TextField directionName, TextField profileName) {
     }
 
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class    StudentsFIOConverter {
+public class StudentsFIOConverter {
     public static List<String> cutStud(List<String> students){
         List<String> newStudentsFormat = new ArrayList<>();
         for (String newFIOFormat:students) {

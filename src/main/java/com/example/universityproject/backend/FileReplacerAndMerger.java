@@ -6,13 +6,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class FileReplacerAndMerger {
     String pathToTitleList = "src/main/resources/wordAndExcelTemplates/TitleLists.docx";
@@ -72,13 +69,13 @@ public class FileReplacerAndMerger {
                     case "supervisorFN" -> template.setField("supervisorFN",supervisorFN.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${supervisorFN}", supervisorFN.getText());
                     case "currentYear" -> template.setField("currentYear",String.valueOf(currentYear));//objUpdateWord.updateDocument(inputPath, outputPath, "${currentYear}", String.valueOf(currentYear));
                     case "courseNum" -> template.setField("courseNum",(String) courseNum.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${courseNum}", (String) courseNum.getValue());
-                    case "groupName" -> template.setField("groupName",(String) groupName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${groupName}", groupName.getText());
+                    case "groupName" -> template.setField("groupName", groupName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${groupName}", groupName.getText());
                     case "practicePlaceAndTime" -> template.setField("practicePlaceAndTime",practicePlaceAndTime.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${practicePlaceAndTime}", practicePlaceAndTime.getText());
                     case "position" -> template.setField("position",position.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${position}", position.getText());
                     case "currentDate" -> template.setField("currentDate",String.valueOf(currentDate.getValue()));//objUpdateWord.updateDocument(inputPath, outputPath, "${currentDate}", String.valueOf(currentDate.getValue()));
                     case "headOfDFN" -> template.setField("headOfDFN",headOfDFN.getText()); //objUpdateWord.updateDocument(inputPath, outputPath, "${headOfDFN}", headOfDFN.getText());
                     //case "${directionNum}" -> template.setField("directionNum",(String) directionNum.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${directionNum}", (String) directionNum.getValue());
-                    case "directionName" -> template.setField("directionName",(String) directionName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${directionName}", (String) directionName.getValue());
+                    case "directionName" -> template.setField("directionName", directionName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${directionName}", (String) directionName.getValue());
                     case "profileName" -> template.setField("profileName",profileName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${profileName}", profileName.getText());
                     default -> {
                     }
