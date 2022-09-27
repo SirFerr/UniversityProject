@@ -10,7 +10,6 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class DocumentBuilder {
-    private String pathToVoidFile = "src/main/resources/wordAndExcelTemplates/VoidDoc.docx";
     private Template template = null;
     private String output = null;
     private String input = null;
@@ -28,6 +27,11 @@ public class DocumentBuilder {
     public Template getTemplate() {
         return template;
     }
+
+    private XWPFDocument getDoc() {
+        return doc;
+    }
+
     private void setXWPFDocument(String input){
         try {
             doc =  new XWPFDocument(Files.newInputStream(Paths.get(input)));
@@ -56,7 +60,7 @@ public class DocumentBuilder {
 
 
     }
-    public void buildDoc(){
+    private void stringSearch(XWPFDocument doc){
         for (XWPFParagraph p : doc.getParagraphs()) {
             List<XWPFRun> runs = p.getRuns();
             if (runs != null) {
@@ -73,6 +77,8 @@ public class DocumentBuilder {
                 }
             }
         }
+    }
+    private void tableSearch(XWPFDocument doc){
         for (XWPFTable tbl : doc.getTables()) {
             for (XWPFTableRow row : tbl.getRows()) {
                 for (XWPFTableCell cell : row.getTableCells()) {
@@ -91,6 +97,11 @@ public class DocumentBuilder {
             }
         }
     }
+    public void buildDoc(){
+        XWPFDocument doc = getDoc();
+        stringSearch(doc);
+        tableSearch(doc);
+    }
     public void saveDoc(){
         try (FileOutputStream out = new FileOutputStream(output)) {
             doc.write(out);
@@ -99,8 +110,29 @@ public class DocumentBuilder {
         }
     }
     public void clearDoc(String path){
+        String pathToVoidFile = "src/main/resources/wordAndExcelTemplates/VoidDoc.docx";
         try (FileOutputStream out = new FileOutputStream(path);
              XWPFDocument doc = new XWPFDocument(Files.newInputStream(Paths.get(pathToVoidFile)))) {
+            doc.write(out);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    static void deleteWM(String path, String WM) {
+        try (XWPFDocument doc = new XWPFDocument(Files.newInputStream(Paths.get(path)));
+             FileOutputStream out = new FileOutputStream(path)) {
+            for (XWPFParagraph paragraph : doc.getParagraphs()) {
+                List<XWPFRun> runs = paragraph.getRuns();
+                if (runs != null) {
+                    for (XWPFRun r : runs) {
+                        String text = r.getText(0);
+                        if (text != null && text.contains(WM)) {
+                                text = text.replace(WM, "");
+                                r.setText(text, 0);
+                        }
+                    }
+                }
+            }
             doc.write(out);
         } catch (IOException e) {
             throw new RuntimeException(e);
