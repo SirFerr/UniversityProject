@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class DocumentBuilder {
+    private String pathToVoidFile = "src/main/resources/wordAndExcelTemplates/VoidDoc.docx";
     private Template template = null;
     private String output = null;
     private String input = null;
@@ -92,6 +93,14 @@ public class DocumentBuilder {
     }
     public void saveDoc(){
         try (FileOutputStream out = new FileOutputStream(output)) {
+            doc.write(out);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void clearDoc(String path){
+        try (FileOutputStream out = new FileOutputStream(path);
+             XWPFDocument doc = new XWPFDocument(Files.newInputStream(Paths.get(path)))) {
             doc.write(out);
         } catch (IOException e) {
             throw new RuntimeException(e);

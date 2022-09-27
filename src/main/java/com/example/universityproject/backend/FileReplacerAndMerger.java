@@ -23,7 +23,7 @@ public interface FileReplacerAndMerger {
                                               TextField supervisorFN, int currentYear,
                                               ChoiceBox courseNum, TextField groupName,
                                               TextField practicePlaceAndTime, TextField position,
-                                              DatePicker currentDate, TextField headOfDFN,
+                                       DatePicker currentDate, TextField headOfDFN,
                                               ComboBox directionNum, ComboBox directionName,
                                               TextField profileName) throws IOException {
         ExcelParsing objForExcelParsing = new ExcelParsing();
