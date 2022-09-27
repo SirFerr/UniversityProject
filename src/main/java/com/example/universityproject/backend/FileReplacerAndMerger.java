@@ -14,17 +14,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public interface FileReplacerAndMerger {
+public class FileReplacerAndMerger {
     String pathToTitleList = "src/main/resources/wordAndExcelTemplates/TitleLists.docx";
 
-    default void fileReplacerAndMerger(ComboBox instituteName, ComboBox departmentName,
+    public static void fileReplacerAndMerger(ComboBox instituteName, ComboBox departmentName,
                                               ComboBox practiceName, DatePicker orderDate,
                                               TextField orderName, DatePicker sessionDate,
                                               TextField supervisorFN, int currentYear,
                                               ChoiceBox courseNum, TextField groupName,
                                               TextField practicePlaceAndTime, TextField position,
                                        DatePicker currentDate, TextField headOfDFN,
-                                              ComboBox directionNum, ComboBox directionName,
+                                               TextField directionName,
                                               TextField profileName) throws IOException {
         ExcelParsing objForExcelParsing = new ExcelParsing();
         List<String> students = objForExcelParsing.pushToArrayList("src/main/resources/wordAndExcelTemplates/Пример таблицы.xlsx");

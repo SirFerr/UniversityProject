@@ -87,16 +87,20 @@ public class Controller implements Initializable,FileReplacerAndMerger {
         btnSubmit.setOnAction(e -> {
             submitText.setText("Запущен процесс создания файлов");
 
-            fileReplacerAndMerger(instituteName, departmentName, practiceName,
-                    orderDate, orderName, currentDate, supervisorFN,
-                    2022, courseNum, groupName, practicePlaceAndTime,
-                    position, currentDate, headOfDFN, directionName,profileName);
+
+            try {
+                fileReplacerAndMerger(instituteName, departmentName, practiceName,
+                        orderDate, orderName, currentDate, supervisorFN,
+                        2022, courseNum, groupName, practicePlaceAndTime,
+                        position, currentDate, headOfDFN, directionName,profileName);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
             submitText.setText("Файлы созданы");
         });
 
     }
 
-    private void fileReplacerAndMerger(ComboBox<String> instituteName, ComboBox<String> departmentName, ComboBox<String> practiceName, DatePicker orderDate, TextField orderName, DatePicker currentDate, TextField supervisorFN, int i, ChoiceBox<Integer> courseNum, TextField groupName, TextField practicePlaceAndTime, TextField position, DatePicker currentDate1, TextField headOfDFN, TextField directionName, TextField profileName) {
-    }
+
 
 }
