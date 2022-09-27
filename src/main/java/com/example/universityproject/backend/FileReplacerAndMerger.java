@@ -54,7 +54,6 @@ public interface FileReplacerAndMerger {
         for (String studentName: students) {
             Template template = new Template(replaceableNames, studentName);
             for (String replaceableName : replaceableNames) {
-                //switch-case to work with key-words
                 switch (replaceableName) {
                     case "${instituteName}" -> template.setField("${instituteName}",(String) instituteName.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${instituteName}", (String) instituteName.getValue());
                     case "${departmentName}" -> template.setField("${departmentName}",(String) departmentName.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${departmentName}", (String) departmentName.getValue());
@@ -78,12 +77,12 @@ public interface FileReplacerAndMerger {
                 }
             }
             DocumentBuilder documentBuilder = new DocumentBuilder(template, outputPath, inputPath);
+            documentBuilder.clearDoc(outputPath);
             documentBuilder.buildDoc();
             documentBuilder.saveDoc();
             Document document = new Document(pathToTitleList);
             document.insertTextFromFile(outputPath, FileFormat.Docx_2013);
             document.saveToFile(pathToTitleList, FileFormat.Docx_2013);
-            documentBuilder.clearDoc(outputPath);
         }
         DocumentBuilder.deleteWM(pathToTitleList,"Evaluation Warning: The document was created with Spire.Doc for JAVA.");
     }
