@@ -100,7 +100,7 @@ public class DocumentBuilder {
     }
     public void clearDoc(String path){
         try (FileOutputStream out = new FileOutputStream(path);
-             XWPFDocument doc = new XWPFDocument(Files.newInputStream(Paths.get(path)))) {
+             XWPFDocument doc = new XWPFDocument(Files.newInputStream(Paths.get(pathToVoidFile)))) {
             doc.write(out);
         } catch (IOException e) {
             throw new RuntimeException(e);
