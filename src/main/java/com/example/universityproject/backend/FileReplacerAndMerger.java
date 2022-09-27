@@ -58,6 +58,7 @@ public class FileReplacerAndMerger {
         }};
         String inputPath = "src/main/resources/wordAndExcelTemplates/mainWordFile.docx";
         String outputPath = "src/main/resources/wordAndExcelTemplates/fileForTesting.docx";
+        DocumentBuilder.clearDoc(pathToTitleList);
         for (String studentName: students) {
             Template template = new Template(replaceableNames, studentName);
             for (String replaceableName : replaceableNames) {
@@ -86,13 +87,12 @@ public class FileReplacerAndMerger {
             template.createMap();
 
             DocumentBuilder documentBuilder = new DocumentBuilder(template, outputPath, inputPath);
-            documentBuilder.clearDoc(outputPath);
-            documentBuilder.clearDoc(pathToTitleList);
             documentBuilder.buildDoc();
             documentBuilder.saveDoc();
             Document document = new Document(pathToTitleList);
             document.insertTextFromFile(outputPath, FileFormat.Docx_2013);
             document.saveToFile(pathToTitleList, FileFormat.Docx_2013);
+            DocumentBuilder.clearDoc(outputPath);
         }
         DocumentBuilder.deleteWM(pathToTitleList,"Evaluation Warning: The document was created with Spire.Doc for JAVA.");
     }

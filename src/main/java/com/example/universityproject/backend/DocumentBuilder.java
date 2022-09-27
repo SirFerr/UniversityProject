@@ -109,7 +109,7 @@ public class DocumentBuilder {
             throw new RuntimeException(e);
         }
     }
-    public void clearDoc(String path){
+    public static void clearDoc(String path){
         String pathToVoidFile = "src/main/resources/wordAndExcelTemplates/VoidDoc.docx";
         try (FileOutputStream out = new FileOutputStream(path);
              XWPFDocument doc = new XWPFDocument(Files.newInputStream(Paths.get(pathToVoidFile)))) {
