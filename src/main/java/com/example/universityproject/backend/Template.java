@@ -1,11 +1,17 @@
 package com.example.universityproject.backend;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Template {
     private String studentFullName;
     private String studentShortName = null;
+    private Map<String,String> keysAndValues;
     public void setStudentFullName(String studentFullName){
         this.studentFullName = studentFullName;
         studentShortName = StudentsFIOConverter.cutStud(this.studentFullName);
@@ -16,8 +22,9 @@ public class Template {
         this.replaceableNames = replaceableNames;
         this.studentFullName = studentFullName;
         this.studentShortName = StudentsFIOConverter.cutStud(this.studentFullName);
-        setField("${studentFullName}",this.studentFullName);
-        setField("${studentFN}",this.studentShortName );
+        setField("studentFullName",this.studentFullName);
+        setField("studentFN",this.studentShortName );
+
     }
     public  ArrayList<String> getReplaceableNames(){
         return replaceableNames;
@@ -26,14 +33,6 @@ public class Template {
    public ArrayList<String> getNewValues(){
         return valuesForKeys;
     }
-    public String getCorrectValue(String replaceableField){
-        for (String field : valuesForKeys){
-            if(Objects.equals(field, replaceableField))
-                return field;
-        }
-        return null;
-    }
-
    public void setField(String field, String value){
         for (String f : replaceableNames){
             if(Objects.equals(f, field)){
@@ -42,5 +41,12 @@ public class Template {
             }
         }
 
+    }
+    public void createMap(){
+        keysAndValues = IntStream.range(0,replaceableNames.size()).boxed().collect(Collectors.toMap(replaceableNames::get,valuesForKeys::get));
+    }
+
+    public Map<String, String> getKeysAndValues() {
+        return keysAndValues;
     }
 }

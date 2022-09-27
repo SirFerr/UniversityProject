@@ -68,7 +68,7 @@ public class DocumentBuilder {
                     String text = r.getText(0);
                     for (String oldReplacement : template.getReplaceableNames()) {
                         if (text != null && text.contains(oldReplacement)) {
-                            text = text.replace(oldReplacement, template.getCorrectValue(oldReplacement));
+                            text = text.replace(oldReplacement, template.getKeysAndValues().get(oldReplacement));
                             r.setText(text, 0);
                         }
 
@@ -87,7 +87,7 @@ public class DocumentBuilder {
                             String text = r.getText(0);
                             for (String oldReplacement : template.getReplaceableNames()) {
                                 if (text != null && text.contains(oldReplacement)) {
-                                    text = text.replace(oldReplacement, template.getCorrectValue(oldReplacement));
+                                    text = text.replace(oldReplacement, template.getKeysAndValues().get(oldReplacement));
                                     r.setText(text, 0);
                                 }
                             }
