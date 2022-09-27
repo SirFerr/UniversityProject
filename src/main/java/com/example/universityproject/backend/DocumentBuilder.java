@@ -62,7 +62,6 @@ public class DocumentBuilder {
                 for (XWPFRun r : runs) {
                     String text = r.getText(0);
                     for (String oldReplacement : template.getReplaceableNames()) {
-                        // if statement to find word to replace
                         if (text != null && text.contains(oldReplacement)) {
                             text = text.replace(oldReplacement, template.getCorrectValue(oldReplacement));
                             r.setText(text, 0);
@@ -73,7 +72,6 @@ public class DocumentBuilder {
                 }
             }
         }
-        //word tables parser
         for (XWPFTable tbl : doc.getTables()) {
             for (XWPFTableRow row : tbl.getRows()) {
                 for (XWPFTableCell cell : row.getTableCells()) {
@@ -81,7 +79,6 @@ public class DocumentBuilder {
                         for (XWPFRun r : p.getRuns()) {
                             String text = r.getText(0);
                             for (String oldReplacement : template.getReplaceableNames()) {
-                                // if statement to find word to replace
                                 if (text != null && text.contains(oldReplacement)) {
                                     text = text.replace(oldReplacement, template.getCorrectValue(oldReplacement));
                                     r.setText(text, 0);

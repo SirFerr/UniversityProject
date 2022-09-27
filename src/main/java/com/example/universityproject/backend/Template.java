@@ -16,8 +16,8 @@ public class Template {
         this.replaceableNames = replaceableNames;
         this.studentFullName = studentFullName;
         this.studentShortName = StudentsFIOConverter.cutStud(this.studentFullName);
-        setField("${studentFN}",this.studentFullName);
-        setField("${studentFullName}",this.studentShortName );
+        setField("${studentFullName}",this.studentFullName);
+        setField("${studentFN}",this.studentShortName );
     }
     public  ArrayList<String> getReplaceableNames(){
         return replaceableNames;
