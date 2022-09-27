@@ -85,10 +85,6 @@ public interface FileReplacerAndMerger {
             document.saveToFile(pathToTitleList, FileFormat.Docx_2013);
             documentBuilder.clearDoc(outputPath);
         }
-        try {
-            objUpdateWord.updateDocument(pathToTitleList, pathToTitleList, "Evaluation Warning: The document was created with Spire.Doc for JAVA.", "");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        DocumentBuilder.deleteWM(pathToTitleList,"Evaluation Warning: The document was created with Spire.Doc for JAVA.");
     }
 }
