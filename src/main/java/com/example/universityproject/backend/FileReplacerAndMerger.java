@@ -14,18 +14,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public interface FileReplacerAndMerger {
+public class FileReplacerAndMerger {
     String pathToTitleList = "src/main/resources/wordAndExcelTemplates/TitleLists.docx";
 
-    default void fileReplacerAndMerger(ComboBox instituteName, ComboBox departmentName,
-                                              ComboBox practiceName, DatePicker orderDate,
-                                              TextField orderName, DatePicker sessionDate,
-                                              TextField supervisorFN, int currentYear,
-                                              ChoiceBox courseNum, TextField groupName,
-                                              TextField practicePlaceAndTime, TextField position,
-                                       DatePicker currentDate, TextField headOfDFN,
-                                              ComboBox directionNum, ComboBox directionName,
-                                              TextField profileName) throws IOException {
+    public void fileReplacerAndMerger(ComboBox instituteName,
+                                      ComboBox departmentName,
+                                      ComboBox practiceName,
+                                      DatePicker orderDate,
+                                      TextField orderName,
+                                      String sessionDate,
+                                      TextField supervisorFN,
+                                      int currentYear,
+                                      ChoiceBox courseNum,
+                                      TextField groupName,
+                                      TextField practicePlaceAndTime,
+                                      TextField position,
+                                      DatePicker currentDate,
+                                      TextField headOfDFN,
+                                      TextField directionName,
+                                      TextField profileName) throws IOException {
         ExcelParsing objForExcelParsing = new ExcelParsing();
         List<String> students = objForExcelParsing.pushToArrayList("src/main/resources/wordAndExcelTemplates/Пример таблицы.xlsx");
         ArrayList<String> replaceableNames = new ArrayList<>(){{
@@ -60,17 +67,17 @@ public interface FileReplacerAndMerger {
                     case "${practiceName}" -> template.setField("${practiceName}",(String) practiceName.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${practiceName}", (String) practiceName.getValue());
                     case "${orderDate}" -> template.setField("${orderDate}",String.valueOf(orderDate.getValue()));//objUpdateWord.updateDocument(inputPath, outputPath, "${orderDate}", String.valueOf(orderDate.getValue()));
                     case "${orderName}" -> template.setField("$${orderName}", orderName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${orderName}", orderName.getText());
-                    case "${sessionDate}" -> template.setField("${sessionDate}",String.valueOf(sessionDate.getValue()));//objUpdateWord.updateDocument(inputPath, outputPath, "${sessionDate}", String.valueOf(sessionDate.getValue()));
+                    case "${sessionDate}" -> template.setField("${sessionDate}",sessionDate);//objUpdateWord.updateDocument(inputPath, outputPath, "${sessionDate}", String.valueOf(sessionDate.getValue()));
                     case "${supervisorFN}" -> template.setField("${supervisorFN}",supervisorFN.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${supervisorFN}", supervisorFN.getText());
                     case "${currentYear}" -> template.setField("${currentYear}",String.valueOf(currentYear));//objUpdateWord.updateDocument(inputPath, outputPath, "${currentYear}", String.valueOf(currentYear));
                     case "${courseNum}" -> template.setField("${courseNum}",(String) courseNum.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${courseNum}", (String) courseNum.getValue());
-                    case "${groupName}" -> template.setField("${groupName}",(String) instituteName.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${groupName}", groupName.getText());
+                    case "${groupName}" -> template.setField("${groupName}",(String) groupName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${groupName}", groupName.getText());
                     case "${practicePlaceAndTime}" -> template.setField("${practicePlaceAndTime}",practicePlaceAndTime.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${practicePlaceAndTime}", practicePlaceAndTime.getText());
                     case "${position}" -> template.setField("${position}",position.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${position}", position.getText());
                     case "${currentDate}" -> template.setField("${currentDate}",String.valueOf(currentDate.getValue()));//objUpdateWord.updateDocument(inputPath, outputPath, "${currentDate}", String.valueOf(currentDate.getValue()));
                     case "${headOfDFN}" -> template.setField("${headOfDFN}",headOfDFN.getText()); //objUpdateWord.updateDocument(inputPath, outputPath, "${headOfDFN}", headOfDFN.getText());
-                    case "${directionNum}" -> template.setField("${directionNum}",(String) directionNum.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${directionNum}", (String) directionNum.getValue());
-                    case "${directionName}" -> template.setField("${directionName}",(String) instituteName.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${directionName}", (String) directionName.getValue());
+                    //case "${directionNum}" -> template.setField("${directionNum}",(String) directionNum.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${directionNum}", (String) directionNum.getValue());
+                    case "${directionName}" -> template.setField("${directionName}",(String) directionName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${directionName}", (String) directionName.getValue());
                     case "${profileName}" -> template.setField("${profileName}",profileName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${profileName}", profileName.getText());
                     default -> {
                     }
