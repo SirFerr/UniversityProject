@@ -40,7 +40,6 @@ public class Template {
                 valuesForKeys.add(value);
                 break;
             }
-
         }
 
     }
