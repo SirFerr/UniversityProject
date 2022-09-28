@@ -6,12 +6,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
+import javafx.util.StringConverter;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable{
+public class Controller  implements Initializable{
 
     public String pathForExcel;
 
@@ -65,7 +68,36 @@ public class Controller implements Initializable{
     private Button btnSubmit;
 
     @FXML
-    private Label submitText;
+    private ProgressBar submitPB;
+
+    public void convertDate(){
+        orderDate.setValue(LocalDate.now());
+        orderDate.setConverter(new StringConverter<LocalDate>() {
+            @Override
+            public String toString(LocalDate localDate) {
+                DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                return dateTimeFormatter.format(localDate);
+            }
+
+            @Override
+            public LocalDate fromString(String s) {
+                return null;
+            }
+        });
+        currentDate.setValue(LocalDate.now());
+        currentDate.setConverter(new StringConverter<LocalDate>() {
+            @Override
+            public String toString(LocalDate localDate) {
+                DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                return dateTimeFormatter.format(localDate);
+            }
+
+            @Override
+            public LocalDate fromString(String s) {
+                return null;
+            }
+        });
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -81,6 +113,7 @@ public class Controller implements Initializable{
         instituteName.getItems().addAll(instituteNameArr);
         practiceName.getItems().addAll(practiceNameArr);
         departmentName.getItems().addAll(departmentNameArr);
+        convertDate();
         courseNum.getItems().addAll(courseNumArr);
         btnFileChooser.setOnAction(e -> {//в file храниться полный путь к файлу
             FileChooser fileChooser = new FileChooser();
@@ -88,9 +121,9 @@ public class Controller implements Initializable{
             btnFileChooser.setText("Файл выбран");
         });
         btnSubmit.setOnAction(e -> {
+            submitPB.setProgress(0.1);
             int currentYear = 2022;
             String sessionDate = "2022";
-            submitText.setText("Запущен процесс создания файлов");
             try {
                 objectForMerging.fileReplacerAndMerger(
                         instituteName,
@@ -112,9 +145,10 @@ public class Controller implements Initializable{
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
-            submitText.setText("Файлы созданы");
+            submitPB.setProgress(1);
+
+
         });
 
     }
-
 }

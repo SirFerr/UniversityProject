@@ -5,18 +5,19 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
 <ScrollPane fitToHeight="true" fitToWidth="true" prefWidth="602.0" style="-fx-background-color: #E6EFFE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.universityproject.Controller">
    <content>
-      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #E6EFFE;">
+      <VBox style="-fx-background-color: #E6EFFE;">
          <children>
-            <GridPane layoutX="10.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+            <GridPane minHeight="-Infinity" prefHeight="210.0" prefWidth="699.0">
                <columnConstraints>
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -37,7 +38,7 @@
                   <ComboBox fx:id="departmentName" editable="true" prefHeight="40.0" prefWidth="10000.0" GridPane.rowIndex="3" />
                </children>
             </GridPane>
-            <GridPane layoutX="10.0" layoutY="224.0" prefHeight="249.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+            <GridPane minHeight="-Infinity" prefHeight="249.0" prefWidth="580.0">
                <columnConstraints>
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
@@ -62,11 +63,11 @@
                   <TextField fx:id="orderName" prefHeight="40.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <TextField fx:id="supervisorFN" prefHeight="40.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                   <TextField fx:id="headOfDFN" prefHeight="40.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                  <DatePicker fx:id="orderDate" prefHeight="40.0" prefWidth="513.0" GridPane.rowIndex="1" />
-                  <DatePicker fx:id="currentDate" prefHeight="40.0" prefWidth="585.0" GridPane.rowIndex="3" />
+                  <DatePicker fx:id="orderDate" prefHeight="40.0" prefWidth="513.0" showWeekNumbers="true" GridPane.rowIndex="1" />
+                  <DatePicker fx:id="currentDate" prefHeight="40.0" prefWidth="585.0" showWeekNumbers="true" GridPane.rowIndex="3" />
                </children>
             </GridPane>
-            <GridPane layoutX="10.0" layoutY="473.0" prefHeight="66.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+            <GridPane minHeight="-Infinity" prefHeight="66.0" prefWidth="580.0">
                <columnConstraints>
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -79,7 +80,7 @@
                   <TextField fx:id="practicePlaceAndTime" prefHeight="40.0" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <GridPane layoutX="10.0" layoutY="546.0" prefHeight="66.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+            <GridPane minHeight="-Infinity" prefHeight="66.0" prefWidth="580.0">
                <columnConstraints>
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
@@ -96,7 +97,7 @@
                   <ChoiceBox fx:id="courseNum" prefHeight="371.0" prefWidth="10000.0" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <GridPane layoutX="10.0" layoutY="612.0" prefHeight="137.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+            <GridPane minHeight="-Infinity" prefHeight="137.0" prefWidth="580.0">
                <columnConstraints>
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
@@ -113,7 +114,7 @@
                   <TextField fx:id="directionName" alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="108.0" prefWidth="580.0" GridPane.rowIndex="1" />
                </children>
             </GridPane>
-            <GridPane layoutX="10.0" layoutY="749.0" prefWidth="580.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+            <GridPane minHeight="-Infinity" prefWidth="580.0">
                <columnConstraints>
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -126,10 +127,10 @@
                   <Label depthTest="DISABLE" graphicTextGap="10.0" prefHeight="21.0" text="Список студентов" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
                   <Button fx:id="btnFileChooser" mnemonicParsing="false" prefHeight="40.0" text="Выбор файла" GridPane.rowIndex="1" />
                   <Button fx:id="btnSubmit" mnemonicParsing="false" prefHeight="40.0" text="Подтвердить" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label fx:id="submitText" alignment="CENTER" depthTest="DISABLE" graphicTextGap="10.0" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="1" />
+                  <ProgressBar fx:id="submitPB" prefHeight="23.0" progress="0.0" GridPane.columnIndex="1" />
                </children>
             </GridPane>
          </children>
-      </AnchorPane>
+      </VBox>
    </content>
 </ScrollPane>

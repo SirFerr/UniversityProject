@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileReplacerAndMerger {
+public class FileReplacerAndMerger{
     String pathToTitleList = "src/main/resources/wordAndExcelTemplates/TitleLists.docx";
 
     public void fileReplacerAndMerger(ComboBox instituteName,
