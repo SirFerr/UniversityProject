@@ -12,14 +12,14 @@ public class Template {
     private Map<String,String> keysAndValues;
     public void setStudentFullName(String studentFullName){
         this.studentFullName = studentFullName;
-        studentShortName = StudentsFIOConverter.cutStud(this.studentFullName);
+        studentShortName = StringConverter.cutStud(this.studentFullName);
     }
     private final ArrayList<String> replaceableNames;
     private final ArrayList<String> valuesForKeys = new ArrayList<>();
     public Template(ArrayList<String> replaceableNames, String studentFullName){
         this.replaceableNames = replaceableNames;
         this.studentFullName = studentFullName;
-        this.studentShortName = StudentsFIOConverter.cutStud(this.studentFullName);
+        this.studentShortName = StringConverter.cutStud(this.studentFullName);
         setField("studentFullName",this.studentFullName);
         setField("studentFN",this.studentShortName );
 

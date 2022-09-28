@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class StudentsFIOConverter {
+public class StringConverter {
     public static List<String> cutStud(List<String> students){
         List<String> newStudentsFormat = new ArrayList<>();
         for (String newFIOFormat:students) {
@@ -25,5 +25,9 @@ public class StudentsFIOConverter {
                 latter.append(m.group() +".");
             }
            return student.replaceAll("\\s\\W+", String.valueOf(latter));
+    }
+    public static String getCorrectPath(String incorrectPath){
+
+        return incorrectPath.replaceAll("\\\\", "\\\\");
     }
 }

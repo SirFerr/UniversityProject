@@ -29,9 +29,9 @@ public class FileReplacerAndMerger{
                                       DatePicker currentDate,
                                       TextField headOfDFN,
                                       TextField directionName,
-                                      TextField profileName) throws IOException {
-        ExcelParsing objForExcelParsing = new ExcelParsing();
-        List<String> students = objForExcelParsing.pushToArrayList("src/main/resources/wordAndExcelTemplates/Пример таблицы.xlsx");
+                                      TextField profileName,
+                                      String pathForExcel) throws IOException {
+        List<String> students = ExcelParsing.pushToArrayList(pathForExcel);
         ArrayList<String> replaceableNames = new ArrayList<>(){{
             add("instituteName");
             add("departmentName");

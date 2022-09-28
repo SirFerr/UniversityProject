@@ -141,7 +141,8 @@ public class Controller  implements Initializable{
                         currentDate,
                         headOfDFN,
                         directionName,
-                        profileName);
+                        profileName,
+                        pathForExcel);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
