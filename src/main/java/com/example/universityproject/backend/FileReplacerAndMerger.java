@@ -33,18 +33,18 @@ public class FileReplacerAndMerger{
                                       String pathForExcel) throws IOException {
         List<String> students = ExcelParsing.pushToArrayList(pathForExcel);
         ArrayList<String> replaceableNames = new ArrayList<>(){{
+            add("studentFullName");
+            add("studentFN");
             add("instituteName");
             add("departmentName");
             add("practiceName");
             add("orderDate");
             add("orderName");
             add("sessionDate");
-            add("studentFN");
             add("supervisorFN");
             add("currentYear");
             add("courseNum");
             add("groupName");
-            add("studentFullName");
             add("practicePlaceAndTime");
             add("position");
             add("currentDate");
