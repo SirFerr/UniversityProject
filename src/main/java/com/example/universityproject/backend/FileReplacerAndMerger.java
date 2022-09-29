@@ -63,7 +63,7 @@ public class FileReplacerAndMerger{
                     case "instituteName" -> template.setField("instituteName",(String) instituteName.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${instituteName}", (String) instituteName.getValue());
                     case "departmentName" -> template.setField("departmentName",(String) departmentName.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${departmentName}", (String) departmentName.getValue());
                     case "practiceName" -> template.setField("practiceName",(String) practiceName.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${practiceName}", (String) practiceName.getValue());
-                    case "orderDate" -> template.setField("orderDate",String.valueOf(orderDate.getValue()));//objUpdateWord.updateDocument(inputPath, outputPath, "${orderDate}", String.valueOf(orderDate.getValue()));
+                    case "orderDate" -> template.setField("orderDate",orderDate.getValue().toString());//objUpdateWord.updateDocument(inputPath, outputPath, "${orderDate}", String.valueOf(orderDate.getValue()));
                     case "orderName" -> template.setField("orderName", orderName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${orderName}", orderName.getText());
                     case "sessionDate" -> template.setField("sessionDate",sessionDate);//objUpdateWord.updateDocument(inputPath, outputPath, "${sessionDate}", String.valueOf(sessionDate.getValue()));
                     case "supervisorFN" -> template.setField("supervisorFN",supervisorFN.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${supervisorFN}", supervisorFN.getText());
@@ -72,7 +72,7 @@ public class FileReplacerAndMerger{
                     case "groupName" -> template.setField("groupName", groupName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${groupName}", groupName.getText());
                     case "practicePlaceAndTime" -> template.setField("practicePlaceAndTime",practicePlaceAndTime.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${practicePlaceAndTime}", practicePlaceAndTime.getText());
                     case "position" -> template.setField("position",position.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${position}", position.getText());
-                    case "currentDate" -> template.setField("currentDate",String.valueOf(currentDate.getValue()));//objUpdateWord.updateDocument(inputPath, outputPath, "${currentDate}", String.valueOf(currentDate.getValue()));
+                    case "currentDate" -> template.setField("currentDate",currentDate.getValue().toString());//objUpdateWord.updateDocument(inputPath, outputPath, "${currentDate}", String.valueOf(currentDate.getValue()));
                     case "headOfDFN" -> template.setField("headOfDFN",headOfDFN.getText()); //objUpdateWord.updateDocument(inputPath, outputPath, "${headOfDFN}", headOfDFN.getText());
                     //case "${directionNum}" -> template.setField("directionNum",(String) directionNum.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${directionNum}", (String) directionNum.getValue());
                     case "directionName" -> template.setField("directionName", directionName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${directionName}", (String) directionName.getValue());

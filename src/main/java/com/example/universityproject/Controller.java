@@ -2,10 +2,15 @@ package com.example.universityproject;
 
 
 import com.example.universityproject.backend.FileReplacerAndMerger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.io.IOException;
@@ -21,54 +26,103 @@ public class Controller  implements Initializable{
     FileReplacerAndMerger objectForMerging = new FileReplacerAndMerger();
 
     @FXML
-    private ComboBox<String> instituteName;
+    protected ComboBox<String> instituteName;
 
     @FXML
-    private ComboBox<String> practiceName;
+    protected ComboBox<String> practiceName;
 
     @FXML
-    private ComboBox<String> departmentName;
+    protected ComboBox<String> departmentName;
 
     @FXML
-    private TextField position;
+    protected TextField position;
 
     @FXML
-    private TextField orderName;
+    protected TextField orderName;
 
     @FXML
-    private TextField supervisorFN;
+    protected TextField supervisorFN;
 
     @FXML
-    private TextField headOfDFN;
+    protected TextField headOfDFN;
 
     @FXML
-    private DatePicker orderDate;
+    protected DatePicker orderDate;
 
     @FXML
-    private DatePicker currentDate;
+    protected DatePicker currentDate;
 
     @FXML
-    private TextField practicePlaceAndTime;
+    protected TextField practicePlaceAndTime;
 
     @FXML
-    private TextField groupName;
+    protected TextField groupName;
 
     @FXML
-    private ChoiceBox<String> courseNum;
+    protected ChoiceBox<String> courseNum;
 
     @FXML
-    private TextField directionName;
+    protected TextField directionName;
     @FXML
-    private TextField profileName;
+    protected TextField profileName;
+    @FXML
+    protected Label errorLabel;
 
     @FXML
-    private Button btnFileChooser;
+    protected Button btnFileChooser;
 
     @FXML
-    private Button btnSubmit;
-
-    @FXML
-    private ProgressBar submitPB;
+    void submit(ActionEvent event) throws IOException {
+        if (instituteName.getValue().isEmpty()
+                ||profileName.getText().isEmpty()
+                ||practiceName.getValue().isEmpty()
+                ||departmentName.getValue().isEmpty()
+                ||pathForExcel.isEmpty()
+                ||position.getText().isEmpty()
+                ||orderName.getText().isEmpty()
+                ||supervisorFN.getText().isEmpty()
+                ||headOfDFN.getText().isEmpty()
+                ||practicePlaceAndTime.getText().isEmpty()
+                ||groupName.getText().isEmpty()
+                ||courseNum.getValue().isEmpty()
+                ||directionName.getText().isEmpty()
+                ||profileName.getText().isEmpty()
+                ||orderDate.getValue()==null
+                ||currentDate.getValue()==null
+        ){
+            errorLabel.setText("Введите все данные");
+        }else {
+            errorLabel.setText("");
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("subMenu.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root1));
+        stage.show();
+        int currentYear = Integer.parseInt(currentDate.getValue().toString().split("/")[3]);
+        String sessionDate = "2022";
+        try {
+            objectForMerging.fileReplacerAndMerger(
+                    instituteName,
+                    departmentName,
+                    practiceName,
+                    orderDate,
+                    orderName,
+                    sessionDate,
+                    supervisorFN,
+                    currentYear,
+                    courseNum,
+                    groupName,
+                    practicePlaceAndTime,
+                    position,
+                    currentDate,
+                    headOfDFN,
+                    directionName,
+                    profileName,
+                    pathForExcel);
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }}
 
     public void convertDate(){
         orderDate.setValue(LocalDate.now());
@@ -119,36 +173,6 @@ public class Controller  implements Initializable{
             FileChooser fileChooser = new FileChooser();
             pathForExcel = fileChooser.showOpenDialog(null).getPath();
             btnFileChooser.setText("Файл выбран");
-        });
-        btnSubmit.setOnAction(e -> {
-            submitPB.setProgress(0.1);
-            int currentYear = 2022;
-            String sessionDate = "2022";
-            try {
-                objectForMerging.fileReplacerAndMerger(
-                        instituteName,
-                        departmentName,
-                        practiceName,
-                        orderDate,
-                        orderName,
-                        sessionDate,
-                        supervisorFN,
-                        currentYear,
-                        courseNum,
-                        groupName,
-                        practicePlaceAndTime,
-                        position,
-                        currentDate,
-                        headOfDFN,
-                        directionName,
-                        profileName,
-                        pathForExcel);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-            submitPB.setProgress(1);
-
-
         });
 
     }
