@@ -34,8 +34,8 @@
                   <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выбереите кафедру" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="2" />
                   <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выбереите тип практики" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="4" />
                   <ComboBox fx:id="instituteName" editable="true" prefHeight="40.0" prefWidth="10000.0" GridPane.rowIndex="1" />
-                  <ComboBox fx:id="practiceName" editable="true" prefHeight="40.0" prefWidth="10000.0" GridPane.rowIndex="5" />
-                  <ComboBox fx:id="departmentName" editable="true" prefHeight="40.0" prefWidth="10000.0" GridPane.rowIndex="3" />
+                  <TextField fx:id="departmentName" prefHeight="40.0" GridPane.rowIndex="3" />
+                  <TextField fx:id="practiceName" prefHeight="40.0" GridPane.rowIndex="5" />
                </children>
             </GridPane>
             <GridPane minHeight="-Infinity" prefHeight="249.0" prefWidth="580.0">

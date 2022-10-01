@@ -15,8 +15,8 @@ public class FileReplacerAndMerger{
     String pathToTitleList = "src/main/resources/wordAndExcelTemplates/TitleLists.docx";
 
     public void fileReplacerAndMerger(ComboBox instituteName,
-                                      ComboBox departmentName,
-                                      ComboBox practiceName,
+                                      TextField departmentName,
+                                      TextField practiceName,
                                       DatePicker orderDate,
                                       TextField orderName,
                                       String sessionDate,
@@ -61,8 +61,8 @@ public class FileReplacerAndMerger{
             for (String replaceableName : replaceableNames) {
                 switch (replaceableName) {
                     case "instituteName" -> template.setField("instituteName",(String) instituteName.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${instituteName}", (String) instituteName.getValue());
-                    case "departmentName" -> template.setField("departmentName",(String) departmentName.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${departmentName}", (String) departmentName.getValue());
-                    case "practiceName" -> template.setField("practiceName",(String) practiceName.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${practiceName}", (String) practiceName.getValue());
+                    case "departmentName" -> template.setField("departmentName",departmentName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${departmentName}", (String) departmentName.getValue());
+                    case "practiceName" -> template.setField("practiceName",practiceName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${practiceName}", (String) practiceName.getValue());
                     case "orderDate" -> template.setField("orderDate",String.valueOf(orderDate.getValue()));//objUpdateWord.updateDocument(inputPath, outputPath, "${orderDate}", String.valueOf(orderDate.getValue()));
                     case "orderName" -> template.setField("orderName", orderName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${orderName}", orderName.getText());
                     case "sessionDate" -> template.setField("sessionDate",sessionDate);//objUpdateWord.updateDocument(inputPath, outputPath, "${sessionDate}", String.valueOf(sessionDate.getValue()));

@@ -24,10 +24,10 @@ public class Controller  implements Initializable{
     private ComboBox<String> instituteName;
 
     @FXML
-    private ComboBox<String> practiceName;
+    private TextField practiceName;
 
     @FXML
-    private ComboBox<String> departmentName;
+    private TextField departmentName;
 
     @FXML
     private TextField position;
@@ -107,12 +107,8 @@ public class Controller  implements Initializable{
                 "Институт перспективных технологий и индустриального программирования",
                 "Институт технологий управления", "Институт тонких химических технологий им. М.В. Ломоносова"};
 
-        String[] practiceNameArr = {"hui", "pizda", "chlen"};
-        String[] departmentNameArr = {"hui", "pizda", "chlen"};
         String[] courseNumArr = {"1", "2", "3", "4", "5", "6"};
-        instituteName.getItems().addAll(instituteNameArr);
-        practiceName.getItems().addAll(practiceNameArr);
-        departmentName.getItems().addAll(departmentNameArr);
+        instituteName.getItems().addAll(instituteNameArr);;
         convertDate();
         courseNum.getItems().addAll(courseNumArr);
         btnFileChooser.setOnAction(e -> {//в file храниться полный путь к файлу
