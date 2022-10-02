@@ -33,9 +33,9 @@
                   <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выбереите институт" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
                   <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выбереите кафедру" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="2" />
                   <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выбереите тип практики" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="4" />
-                  <ComboBox fx:id="instituteName" editable="true" prefHeight="40.0" prefWidth="10000.0" GridPane.rowIndex="1" />
-                  <TextField fx:id="departmentName" prefHeight="40.0" GridPane.rowIndex="3" />
-                  <TextField fx:id="practiceName" prefHeight="40.0" GridPane.rowIndex="5" />
+                  <ComboBox fx:id="instituteName" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="10000.0" GridPane.rowIndex="1" />
+                  <TextField fx:id="departmentName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="10000.0" GridPane.rowIndex="3" />
+                  <TextField fx:id="practiceName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="10000.0" GridPane.rowIndex="5" />
                </children>
             </GridPane>
             <GridPane minHeight="-Infinity" prefHeight="249.0" prefWidth="580.0">
@@ -59,12 +59,12 @@
                   <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выберите дату приказа" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
                   <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выберите дату получения задания" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="2" />
                   <Label depthTest="DISABLE" graphicTextGap="10.0" text="Введите должность на практике" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="4" />
-                  <TextField fx:id="position" prefHeight="40.0" GridPane.rowIndex="5" />
-                  <TextField fx:id="orderName" prefHeight="40.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <TextField fx:id="supervisorFN" prefHeight="40.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <TextField fx:id="headOfDFN" prefHeight="40.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                  <DatePicker fx:id="orderDate" prefHeight="40.0" prefWidth="513.0" showWeekNumbers="true" GridPane.rowIndex="1" />
-                  <DatePicker fx:id="currentDate" prefHeight="40.0" prefWidth="585.0" showWeekNumbers="true" GridPane.rowIndex="3" />
+                  <TextField fx:id="position" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="10000.0" GridPane.rowIndex="5" />
+                  <TextField fx:id="orderName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="10000.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="supervisorFN" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="10000.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <TextField fx:id="headOfDFN" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="10000.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                  <DatePicker fx:id="orderDate" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="10000.0" showWeekNumbers="true" GridPane.rowIndex="1" />
+                  <DatePicker fx:id="currentDate" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="10000.0" showWeekNumbers="true" GridPane.rowIndex="3" />
                </children>
             </GridPane>
             <GridPane minHeight="-Infinity" prefHeight="66.0" prefWidth="580.0">
@@ -77,7 +77,7 @@
                </rowConstraints>
                <children>
                   <Label depthTest="DISABLE" graphicTextGap="10.0" text="Введите место и время практики" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
-                  <TextField fx:id="practicePlaceAndTime" prefHeight="40.0" GridPane.rowIndex="1" />
+                  <TextField fx:id="practicePlaceAndTime" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="10000.0" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <GridPane minHeight="-Infinity" prefHeight="66.0" prefWidth="580.0">
@@ -93,8 +93,8 @@
                <children>
                   <Label depthTest="DISABLE" graphicTextGap="10.0" text="Введите номер группы" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.columnIndex="2" />
                   <Label depthTest="DISABLE" graphicTextGap="10.0" text="Выберите номер курса" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
-                  <TextField fx:id="groupName" prefHeight="221.0" prefWidth="10000.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <ChoiceBox fx:id="courseNum" prefHeight="371.0" prefWidth="10000.0" GridPane.rowIndex="1" />
+                  <TextField fx:id="groupName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="10000.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <ChoiceBox fx:id="courseNum" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="35.0" prefWidth="10000.0" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <GridPane minHeight="-Infinity" prefHeight="137.0" prefWidth="580.0">
@@ -108,10 +108,10 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField fx:id="profileName" alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="108.0" prefWidth="580.0" GridPane.rowIndex="3" />
+                  <TextField fx:id="profileName" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="10000.0" GridPane.rowIndex="3" />
                   <Label depthTest="DISABLE" graphicTextGap="10.0" text="Введите название профиля" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="2" />
                   <Label depthTest="DISABLE" graphicTextGap="10.0" text="Введите название название направления" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" />
-                  <TextField fx:id="directionName" alignment="TOP_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="108.0" prefWidth="580.0" GridPane.rowIndex="1" />
+                  <TextField fx:id="directionName" alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="35.0" prefWidth="10000.0" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <GridPane minHeight="-Infinity" prefWidth="580.0">
