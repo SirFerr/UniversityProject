@@ -73,7 +73,7 @@ public class Controller  implements Initializable{
     public void convertDate(){
         String pattern="dd/MM/yyyy";
         orderDate.setValue(LocalDate.now());
-        orderDate.setConverter(new StringConverter<LocalDate>() {
+        orderDate.setConverter(new StringConverter<>() {
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
             @Override
             public String toString(LocalDate localDate) {

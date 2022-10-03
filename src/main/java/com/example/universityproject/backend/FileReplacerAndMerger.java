@@ -74,7 +74,6 @@ public class FileReplacerAndMerger{
                     case "position" -> template.setField("position",position.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${position}", position.getText());
                     case "currentDate" -> template.setField("currentDate",String.valueOf(currentDate.getValue()));//objUpdateWord.updateDocument(inputPath, outputPath, "${currentDate}", String.valueOf(currentDate.getValue()));
                     case "headOfDFN" -> template.setField("headOfDFN",headOfDFN.getText()); //objUpdateWord.updateDocument(inputPath, outputPath, "${headOfDFN}", headOfDFN.getText());
-                    //case "${directionNum}" -> template.setField("directionNum",(String) directionNum.getValue());//objUpdateWord.updateDocument(inputPath, outputPath, "${directionNum}", (String) directionNum.getValue());
                     case "directionName" -> template.setField("directionName", directionName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${directionName}", (String) directionName.getValue());
                     case "profileName" -> template.setField("profileName",profileName.getText());//objUpdateWord.updateDocument(inputPath, outputPath, "${profileName}", profileName.getText());
                     default -> {
@@ -92,5 +91,6 @@ public class FileReplacerAndMerger{
             DocumentBuilder.clearDoc(outputPath);
         }
         DocumentBuilder.deleteWM(pathToTitleList,"Evaluation Warning: The document was created with Spire.Doc for JAVA.");
+        ResultPusher.pushFile(pathToTitleList);
     }
 }
