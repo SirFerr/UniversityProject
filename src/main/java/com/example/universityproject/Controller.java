@@ -71,30 +71,49 @@ public class Controller  implements Initializable{
     private ProgressBar submitPB;
 
     public void convertDate(){
+        String pattern="dd/MM/yyyy";
         orderDate.setValue(LocalDate.now());
         orderDate.setConverter(new StringConverter<LocalDate>() {
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
             @Override
             public String toString(LocalDate localDate) {
-                DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                return dateTimeFormatter.format(localDate);
+
+                if (localDate != null) {
+                    return dateTimeFormatter.format(localDate);
+                } else {
+                    return "";
+                }
             }
 
             @Override
             public LocalDate fromString(String s) {
-                return null;
+                if (s != null && !s.isEmpty()) {
+                    return LocalDate.parse(s, dateTimeFormatter);
+                } else {
+                    return null;
+                }
             }
         });
         currentDate.setValue(LocalDate.now());
         currentDate.setConverter(new StringConverter<LocalDate>() {
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
             @Override
             public String toString(LocalDate localDate) {
-                DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                return dateTimeFormatter.format(localDate);
+
+                if (localDate != null) {
+                    return dateTimeFormatter.format(localDate);
+                } else {
+                    return "";
+                }
             }
 
             @Override
             public LocalDate fromString(String s) {
-                return null;
+                if (s != null && !s.isEmpty()) {
+                    return LocalDate.parse(s, dateTimeFormatter);
+                } else {
+                    return null;
+                }
             }
         });
     }
