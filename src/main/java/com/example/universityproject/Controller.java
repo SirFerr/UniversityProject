@@ -109,7 +109,7 @@ public class Controller  implements Initializable{
 
         String[] courseNumArr = {"1", "2", "3", "4", "5", "6"};
         instituteName.getItems().addAll(instituteNameArr);;
-        convertDate();
+         convertDate();
         courseNum.getItems().addAll(courseNumArr);
         btnFileChooser.setOnAction(e -> {//в file храниться полный путь к файлу
             FileChooser fileChooser = new FileChooser();
